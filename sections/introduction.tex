@@ -1,0 +1,61 @@
+\section{Introduction}
+%======================================================================================
+
+This paper covers Lab 1, the development of a differential drive model robot wrapped inside of a unicycle model with go to goal, avoid obstacle and wall follow behavior.
+
+
+% Differential drive
+% Discuss the differential drive model and its equations.
+% Importance
+Most robots suffer the control constraints of having two motorized wheels, differential drive model is a control model for robots with two motorized wheels. 
+% Workings
+The differential drive model works in terms of desired scalar left and right wheel velocities, however this is not ideal since it is unintuitive to control. Preferably, the desired linear and angular velocity would be specified, not the desired left and right wheel velocities.
+For the differential drive model, with scalar wheel velocities $v_l$ and $v_r$, and wheel parameters radius $r$ and wheel base $l$, the $\dot{x}$, $\dot{y}$ and $\dot{\theta}$ can be acquired according to\:\eqref{eq:differential_drive_model}\:\cite{carlenerikssonLectureKinematicsBehavioral2024}.
+\begin{equation}
+    \label{eq:differential_drive_model}
+    \begin{cases}
+    \dot{x} = \frac{r}{2} (v_r + v_l) \cos{\theta} \\
+    \dot{y} = \frac{r}{2} (v_r + v_l) \sin{\theta} \\
+    \dot{\theta} = \frac{r}{l} (v_r - v_l)
+    \end{cases}
+\end{equation}
+
+
+% Unicle model
+% Describe the unicycle model and present its theoretical equations.
+% Importance
+To work with desired linear and angular velocities the help of the unicycle model can be employed, simply wrapping the underlying system constraints, which are part of the differential drive model, inside of the unicycle model.
+The unicycle model is much easier to work with since it is the easier way to control and model robots, simply specifying the desired movement of the robot rather than individual wheel velocities.
+% Workings
+For the unicycle model, with scalar inputs linear velocity $v$ and angular velocity $\omega$, the $\dot{x}$, $\dot{y}$ and $\dot{\theta}$ can be acquired according to\:\eqref{eq:unicycle_model}\:\cite{carlenerikssonLectureKinematicsBehavioral2024}.
+\begin{align}
+    \label{eq:unicycle_model}
+    \begin{cases}
+    \dot{x} = v \cos{\theta} \\
+    \dot{y} = v \sin{\theta} \\
+    \dot{\theta} = \omega
+    \end{cases}
+\end{align}
+
+
+% Explain how the unicycle model can be designed using the differential drive model.
+By equating\:\eqref{eq:differential_drive_model} and\:\eqref{eq:unicycle_model}, the connection between unicycle model and differential drive model can be obtained, see\:\eqref{eq:left_uni_differential} and\:\eqref{eq:right_uni_differential}\:\cite{carlenerikssonLectureKinematicsBehavioral2024}.
+\begin{dmath}
+    \label{eq:left_uni_differential}
+    v_l = \frac{2 v - \omega l}{2 r}
+\end{dmath}
+
+\begin{dmath}
+    \label{eq:right_uni_differential}
+    v_r = \frac{2 v + \omega l}{2 r}
+\end{dmath}
+When using\:\eqref{eq:left_uni_differential} and\:\eqref{eq:right_uni_differential} in\:\eqref{eq:differential_drive_model}, the input and output remains the same, with the intuitive input of the unicycle model, resulting in essentially wrapping or encapsulating the differential drive model inside of the unicycle model.
+
+%======================================================================================
+
+
+%======================================================================================
+\begin{comment}
+    % Provide an introduction to the concepts of the unicycle model, differential drive model, and the importance of these models in robotic navigation.
+\end{comment}
+%======================================================================================

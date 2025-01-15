@@ -1,0 +1,35 @@
+\section{Discussion}
+%======================================================================================
+
+The system could be implemented on a physical platform in real life, however there are many considerations which needs to be take in to account, some notable ones will be covered in this section.
+
+% Real world implementation differences
+The simulated systems level of discretization is unrealistic for real world scenarios, the system would have to go through extensive testing and most likely multiple revisions to ensure the system functions correctly for the continuous nature of the real world.
+The current model also has no simulated noise. Sensor noise and inaccuracies will most definitely have to be dealt with adequately in a real world implementation.
+Depending on the expected deployment area, factors such as weather, lighting and other dynamic environmental factors are not covered in the model and the system would have to be modified to handle such dynamic effects.
+Physical limitations and constraints were not considered in the simulated model. This includes such things as: actuator limits, friction and wear.
+In real world scenarios the wheels can loose contact with the ground or slippage causing unaccounted action to take place which will cause errors in the pose estimation.
+It should be noted that implementation of this system in real life would require a priori information about the environment since the current structure of the system requires knowledge about the goal location.
+
+% Possible sensor choices
+Possible sensors for this system would be a LIDAR as the sensor for identifying distance and angles to obstacles, and an inertial measurement unit (IMU) containing an accelerometer, a gyroscope and a magnetometer in the same package (called IMMU), for approximating the robots current pose (position and orientation). It should be noted that this setup is subject to drift and error accumulation. If the system was to only be employed in outside environments, then a GPS could be implemented as well to help negate error accumulation of the robot pose estimation, stemming from the IMMU, and help to better approximate the current pose.
+
+% Sensor noise
+Sensor noise is a severe problem, one way to mitigate it is to use sensor fusion, this could be done by employing a Kalman filter. A Kalman filter can also be used to filter the signal and thus reducing sensor noise, particle filters are also viable for this.
+Better sensors would naturally also reduce the issue of sensor noise but will significantly increase cost which often is a limiting factor.
+
+% Problems with behavior robotics in other environments
+The system could encounter various problems depending on the environment. The sensors proposed for calculating position and orientation, IMMU and GPS, severely limit the possible environments. GPS mainly works in outdoor environments, and both IMMU and GPS would work poorly in underwater applications. 
+The behavior robotics in the system works well for the simulated environment but could pose various challenges in dynamic environments, especially containing human interaction.
+While the behavior robotics works sufficiently well for the complexity of the simulated map, it might struggle with more complex environments.
+The behavior is also static, containing no capabilities of learning. While this might be sufficient for simple problems, it might cause problems in more difficult scenarios, especially if one considers limitations of resources like time or energy. The reason for this is that while the static behavior might solve a more difficult problem, this solution might be far from the global optimal or even from a local optimal, and it will never improve. If the system then also has limited resources like time or energy, then it is easy to see that a more sophisticate system is required which is guaranteed to find a more optimal solution within the constraints of available resources.
+
+%======================================================================================
+
+
+%======================================================================================
+\begin{comment}
+    % Discuss how you approached the design of different behaviors and the values chosen for control parameters. Reflect on potential real-world implementation differences, sensor noise, sensor choices, and possible issues in behavior robotics for varied environments.
+    % Expand the report to include some reflection about how the system could be implemented on a physical platform and what would differ from the simulation. For example, how could the robot deal with sensor noise? What kind of sensors could be used? Can you spot any potential problems with behavior robotics for other environments?
+\end{comment}
+%======================================================================================

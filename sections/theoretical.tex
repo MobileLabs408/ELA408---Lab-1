@@ -1,0 +1,60 @@
+\section{Theoretical Background}
+%======================================================================================
+
+\subsection{Unicycle Model}
+% Describe the unicycle model and present its theoretical equations.
+
+For the unicycle model, with scalar linear velocity $v$ and angular velocity $\omega$, the $\dot{x}$, $\dot{y}$ and $\dot{\theta}$ can be acquired according to\:\eqref{eq:unicycle_model}\:\cite{carlenerikssonLectureKinematicsBehavioral2024}.
+
+\begin{align}
+    \label{eq:unicycle_model}
+    \begin{cases}
+    \dot{x} = v \cos{\theta} \\
+    \dot{y} = v \sin{\theta} \\
+    \dot{\theta} = \omega
+    \end{cases}
+\end{align}
+
+%======================================================================================
+
+\subsection{Differential Drive Model}
+% Discuss the differential drive model and its equations.
+
+For the differential drive model, with scalar wheel velocities $v_l$ and $v_r$, and wheel parameters radius $r$ and wheel base $l$, the $\dot{x}$, $\dot{y}$ and $\dot{\theta}$ can be acquired according to\:\eqref{eq:differential_drive_model}\:\cite{carlenerikssonLectureKinematicsBehavioral2024}.
+
+\begin{align}
+    \label{eq:differential_drive_model}
+    \begin{cases}
+    \dot{x} = \frac{r}{2} (v_r + v_l) \cos{\theta} \\
+    \dot{y} = \frac{r}{2} (v_r + v_l) \sin{\theta} \\
+    \dot{\theta} = \frac{r}{l} (v_r - v_l)
+    \end{cases}
+\end{align}
+
+%======================================================================================
+
+\subsection{Connection Between Models}
+% Explain how the unicycle model can be designed using the differential drive model.
+
+By equating\:\eqref{eq:unicycle_model} and\:\eqref{eq:differential_drive_model}, the connection between unicycle model and differential drive model can be obtained, see\:\eqref{eq:left_uni_differential} and\:\eqref{eq:right_uni_differential}\:\cite{carlenerikssonLectureKinematicsBehavioral2024}.
+
+\begin{dmath}
+    \label{eq:left_uni_differential}
+    v_l = \frac{2 v - \omega l}{2 r}
+\end{dmath}
+
+\begin{dmath}
+    \label{eq:right_uni_differential}
+    v_r = \frac{2 v + \omega l}{2 r}
+\end{dmath}
+
+When using\:\eqref{eq:left_uni_differential} and\:\eqref{eq:right_uni_differential} in\:\eqref{eq:differential_drive_model}, the input and output remains the same, with the intuitive input of the unicycle model, resulting in essentially wrapping or encapsulating the differential drive model inside of the unicycle model.
+
+%======================================================================================
+
+
+%======================================================================================
+\begin{comment}
+    
+\end{comment}
+%======================================================================================

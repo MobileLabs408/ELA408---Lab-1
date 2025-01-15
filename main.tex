@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{a4paper, margin=2cm}
+
+%======================================================================================
+% Includes/packages
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{comment}
+% Long equations
+\usepackage{breqn}
+\usepackage{amsmath}
+% Sub figures
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx} % Include this in your preamble
+% Real number R symbol
+\usepackage{amssymb}
+
+%======================================================================================
+
+% atan2
+\DeclareMathOperator{\atantwo}{atan2}
+
+% norm
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+%======================================================================================
+
+% Create document
+
+\title{ELA408 - Lab 1: Navigating a Maze with a Differential Drive Robot}
+\author{Carl Larsson, Pontus Svensson}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% Include sections
+%\input{sections/abstract}
+\input{sections/introduction}
+%\input{sections/theoretical}
+\input{sections/method}
+\input{sections/results}
+\input{sections/discussion}
+%\input{sections/conclusion}
+\input{sections/appendix}
+
+% Include refs
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}
+%======================================================================================

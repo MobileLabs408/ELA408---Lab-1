@@ -1,0 +1,54 @@
+\appendix
+%======================================================================================
+
+%\section{Code}
+
+%======================================================================================
+
+\begin{comment}
+
+\section{Mapping between frames}
+The mapping of a robot position $\mathbf{p}_i$ (in operational space), from the frame attached to the robot, denoted $2$, to the base frame, denoted $1$, assuming only rotation and no translation between the frames, follow\:\eqref{eq:map_position_rotation}. 
+
+\begin{dmath}
+    \label{eq:map_position_rotation}
+    \mathbf{p}_1 = \mathbf{R}_{\text{z}}(\theta) \mathbf{p}_2
+\end{dmath}
+Here it is assumed that the rotation between the two frames are about the z axis by an angle $\theta$.
+
+If the frames contain translation and rotation, then the use of homogeneous matrices ($\mathbf{A}_i^{i-1}$) needs to be employed following the Denavit–Hartenberg convention, see\:\eqref{eq:map_position_homogenous}.
+
+\begin{dmath}
+    \label{eq:map_position_homogenous}
+    \begin{bmatrix}
+    \mathbf{p}_1 \\
+    1
+    \end{bmatrix}
+    = \mathbf{A}_2^1 
+    \begin{bmatrix}
+    \mathbf{p}_2 \\
+    1
+    \end{bmatrix}
+\end{dmath}
+
+Where $\mathbf{A}$ is in the form of\:\eqref{eq:homogenous_matrix}.
+
+\begin{dmath}
+    \label{eq:homogenous_matrix}
+    \mathbf{A} = 
+    \begin{bmatrix}
+    \mathbf{R} & \mathbf{p} \\
+    0 & 1
+    \end{bmatrix}
+\end{dmath}
+
+\end{comment}
+
+%======================================================================================
+
+
+%======================================================================================
+\begin{comment}
+    % Include or reference your script and Simulink model.
+\end{comment}
+%======================================================================================
